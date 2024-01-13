@@ -11,10 +11,10 @@ public class Block {
     private String previousHash;
     private String transaction;
 
-    public Block(int id, String previousHash, String transaction) {
+    public Block(int id, String transaction, String previousHash) {
 	this.id = id;
-	this.previousHash = previousHash;
 	this.transaction = transaction;
+	this.previousHash = previousHash;
 	this.timeStamp = new Date().getTime();
 	generateHash();
     }

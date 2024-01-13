@@ -1,7 +1,6 @@
 package com.sqs.blockchain;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class BlockChain {
 
@@ -10,7 +9,7 @@ public class BlockChain {
      * 
      * not able to remove blocks
      */
-    private List<Block> blockChain;
+    private LinkedList<Block> blockChain;
 
     public BlockChain() {
 	blockChain = new LinkedList<>();
@@ -21,8 +20,8 @@ public class BlockChain {
     }
 
     // Ensuring the immutability of the blockchain and its constituent blocks.
-    public List<Block> getBlockChain() {
-	List<Block> copy = new LinkedList<>();
+    public LinkedList<Block> getBlockChain() {
+	LinkedList<Block> copy = new LinkedList<>();
 	blockChain.forEach(b -> copy.add(new Block(b)));
 	return copy;
     }
