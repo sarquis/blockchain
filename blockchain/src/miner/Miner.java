@@ -1,4 +1,8 @@
-package com.sqs.blockchain;
+package miner;
+
+import com.sqs.blockchain.Block;
+import com.sqs.blockchain.BlockChain;
+import com.sqs.constants.Constants;
 
 public class Miner {
 

@@ -2,6 +2,8 @@ package com.sqs.blockchain;
 
 import java.util.Date;
 
+import com.sqs.helper.SHA256Helper;
+
 public class Block {
 
     private int id;

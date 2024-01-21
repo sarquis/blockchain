@@ -1,4 +1,4 @@
-package com.sqs.blockchain;
+package com.sqs.constants;
 
 public class Constants {
 

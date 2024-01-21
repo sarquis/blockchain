@@ -1,6 +1,12 @@
-package com.sqs.blockchain;
+package com.sqs.app;
 
-public class App {
+import com.sqs.blockchain.Block;
+import com.sqs.blockchain.BlockChain;
+import com.sqs.constants.Constants;
+
+import miner.Miner;
+
+public class BlockchainApp {
 
     public static void main(String[] args) {
 

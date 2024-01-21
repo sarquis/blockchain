@@ -1,7 +1,9 @@
-package com.sqs.blockchain;
+package com.sqs.app;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.sqs.helper.SHA256Helper;
 
 public class MerkleTreeApp {
 
