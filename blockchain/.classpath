@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="libs/bcprov-jdk18on-177.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

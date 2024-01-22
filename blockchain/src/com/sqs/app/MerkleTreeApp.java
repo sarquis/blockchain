@@ -3,7 +3,7 @@ package com.sqs.app;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sqs.helper.SHA256Helper;
+import com.sqs.helper.CryptographyHelper;
 
 public class MerkleTreeApp {
 
@@ -37,7 +37,7 @@ public class MerkleTreeApp {
 
     private String mergeHash(String hash1, String hash2) {
 	String mergedHash = hash1 + hash2;
-	return SHA256Helper.generateHash(mergedHash);
+	return CryptographyHelper.generateHash(mergedHash);
     }
 
     public static void main(String[] args) {

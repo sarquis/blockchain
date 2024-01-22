@@ -2,7 +2,7 @@ package com.sqs.blockchain;
 
 import java.util.Date;
 
-import com.sqs.helper.SHA256Helper;
+import com.sqs.helper.CryptographyHelper;
 
 public class Block {
 
@@ -35,7 +35,7 @@ public class Block {
 		String.valueOf(timeStamp) +
 		String.valueOf(nonce) +
 		transaction;
-	hash = SHA256Helper.generateHash(dataToHash);
+	hash = CryptographyHelper.generateHash(dataToHash);
     }
 
     public void incrementNonce() {

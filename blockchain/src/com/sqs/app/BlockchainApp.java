@@ -3,8 +3,7 @@ package com.sqs.app;
 import com.sqs.blockchain.Block;
 import com.sqs.blockchain.BlockChain;
 import com.sqs.constants.Constants;
-
-import miner.Miner;
+import com.sqs.cryptocurrency.Miner;
 
 public class BlockchainApp {
 
