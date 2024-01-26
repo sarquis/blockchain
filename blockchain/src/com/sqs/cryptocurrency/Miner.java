@@ -6,10 +6,12 @@ import com.sqs.constants.Constants;
 
 public class Miner {
 
+    // Every miner gets 6.25 BTC after mining.
     private double reward;
 
     public void mine(Block block, BlockChain blockChain) {
 	// Proof of work (PoW)
+	// PoW is not energy efficient, PoS is a better approach.
 	while (!isGoldenHash(block)) {
 	    block.incrementNonce();
 	    block.generateHash();

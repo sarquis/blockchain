@@ -1,6 +1,10 @@
 package com.sqs.blockchain;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
+
+import com.sqs.cryptocurrency.TransactionOutput;
 
 public class BlockChain {
 
@@ -11,23 +15,19 @@ public class BlockChain {
      */
     private LinkedList<Block> blockChain;
 
+    public static Map<String, TransactionOutput> UTXOs;
+
     public BlockChain() {
 	blockChain = new LinkedList<>();
+	UTXOs = new HashMap<>();
     }
 
     public void addBlock(Block block) {
 	blockChain.add(block);
     }
 
-    // Ensuring the immutability of the blockchain and its constituent blocks.
-    public LinkedList<Block> getBlockChain() {
-	LinkedList<Block> copy = new LinkedList<>();
-	blockChain.forEach(b -> copy.add(new Block(b)));
-	return copy;
-    }
-
     public int getSize() {
-	return this.blockChain.size();
+	return blockChain.size();
     }
 
     @Override

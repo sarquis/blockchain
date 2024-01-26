@@ -1,7 +1,11 @@
 package com.sqs.blockchain;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import com.sqs.constants.Constants;
+import com.sqs.cryptocurrency.Transaction;
 import com.sqs.helper.CryptographyHelper;
 
 public class Block {
@@ -11,43 +15,47 @@ public class Block {
     private long timeStamp;
     private String hash;
     private String previousHash;
-    private String transaction;
 
-    public Block(int id, String transaction, String previousHash) {
-	this.id = id;
-	this.transaction = transaction;
+    // Ethereum every block stores 1500-2000 transactions.
+    private List<Transaction> transactions;
+
+    public Block(String previousHash) {
+	transactions = new ArrayList<>();
 	this.previousHash = previousHash;
 	this.timeStamp = new Date().getTime();
 	generateHash();
     }
 
-    public Block(Block block) {
-	id = block.id;
-	nonce = block.nonce;
-	timeStamp = block.timeStamp;
-	hash = block.hash;
-	previousHash = block.previousHash;
-	transaction = block.transaction;
-    }
-
     public void generateHash() {
 	String dataToHash = String.valueOf(id) +
 		String.valueOf(timeStamp) +
-		String.valueOf(nonce) +
-		transaction;
+		transactions.toString() +
+		String.valueOf(nonce);
 	hash = CryptographyHelper.generateHash(dataToHash);
+    }
+
+    public boolean addTransaction(Transaction transaction) {
+	if (transaction == null)
+	    return false;
+
+	if (!previousHash.equals(Constants.GENESIS_PREV_HASH)
+		&& !transaction.verifyTransaction()) {
+	    System.out.println("Transation is not valid...");
+	    return false;
+	}
+
+	transactions.add(transaction);
+	System.out.println("Transaction is valid and it's added to the block " + this);
+	return true;
     }
 
     public void incrementNonce() {
 	nonce++;
     }
 
+    // SHA-256 identify the block.
     public String getHash() {
 	return hash;
-    }
-
-    public void setHash(String hash) {
-	this.hash = hash;
     }
 
     public String getPreviousHash() {
@@ -59,7 +67,7 @@ public class Block {
 	return "Block [id=" + id
 	       + ", hash=" + hash
 	       + ", previousHash=" + previousHash
-	       + ", transaction=" + transaction + "]";
+	       + ", transactions=" + transactions.toString() + "]";
     }
 
 }
