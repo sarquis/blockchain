@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sqs.helper.CryptographyHelper;
-
+// Teste para disparar o Git Actions.
 public class MerkleTreeApp {
 
     private List<String> transactions;
